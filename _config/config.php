@@ -28,6 +28,6 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 
 /* db info */
 const DB_HOST = 'localhost';
-const DB_NAME = 'Alpha';
+const DB_NAME = 'Wiki';
 const DB_USER = 'root';
 const DB_PASS = '';
