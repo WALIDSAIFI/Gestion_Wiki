@@ -19,8 +19,6 @@ session_start();
 //------------------------//
 
 
-
-
 /* paths */
 define('PATH_REQUIRE', substr($_SERVER['SCRIPT_FILENAME'], 0, -9)); // inclusion php
 define('PATH', substr($_SERVER['PHP_SELF'], 0, -9)); // pour les images et les fichiers
