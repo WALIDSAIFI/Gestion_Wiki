@@ -3,6 +3,7 @@ id INT AUTO_INCREMENT PRIMARY KEY,
  name VARCHAR(255) NOT NULL
 );
 
+
 CREATE TABLE User (
 user_id INT PRIMARY KEY,
 username VARCHAR(255),
@@ -11,6 +12,7 @@ password VARCHAR(255),
 role_id INT,
 FOREIGN KEY (role_id) REFERENCES Roles(id)
 );
+
 
 CREATE TABLE Categorier (
 id_Categories INT PRIMARY KEY,
