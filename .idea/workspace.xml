@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
-
+      <change afterPath="$PROJECT_DIR$/controllers/login_controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/login_model" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/login_views.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/_config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/home_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/home_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/home_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home_views.php" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/_config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/_config/config.php" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2afMXbO6uOEtZH169qDDqDNrzds" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
