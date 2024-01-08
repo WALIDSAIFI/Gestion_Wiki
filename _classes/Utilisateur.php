@@ -10,9 +10,7 @@ class user {
         global $db;
         $result = $db->query("SELECT * FROM user WHERE id = '$id'");
         $user = $result->fetch_assoc();
-
         $this->id = $user['users_id'];
-
         $this->username = $user['username'];
         $this->email = $user['email'];
         $this->password = $user['password'];
