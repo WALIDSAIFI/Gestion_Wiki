@@ -19,7 +19,7 @@
                     class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Login
             </button>
         </form>
-        <p class="mt-4 text-center text-rose-600">Don't have an account? <a href="index.php?page=register"
+        <p class="mt-4 text-center text-rose-600">Don't have an account? <a href="index.php?page=sinup"
                                                                             class="text-blue-500">Register</a></p>
 
     </div>
