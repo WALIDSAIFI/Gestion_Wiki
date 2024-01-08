@@ -27,7 +27,7 @@ CREATE TABLE Wiki (
  title VARCHAR(255),
  content TEXT,
  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
- date_edit  TIMESTAMP DEFAULT NULL,
+ date_edit DATETIME ON UPDATE CURRENT_TIMESTAMP,
  user_id INT,
  id_Categories  INT,
  FOREIGN KEY (user_id) REFERENCES User(user_id),
@@ -38,6 +38,6 @@ CREATE TABLE Wiki_Tag (
   wiki_id INT,
   tag_id INT,
   PRIMARY KEY (wiki_id, tag_id),
-  FOREIGN KEY (wiki_id) REFERENCES Wiki(wiki_id),
+  FOREIGN KEY (wiki_id) REFERENCES Wiki(id),
   FOREIGN KEY (tag_id) REFERENCES Tag(tag_id)
 );
