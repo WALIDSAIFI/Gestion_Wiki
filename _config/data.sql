@@ -1,45 +1,66 @@
-CREATE TABLE Roles (
-id INT AUTO_INCREMENT PRIMARY KEY,
- name VARCHAR(255) NOT NULL
+CREATE TABLE `users`
+(
+    `id`         int NOT NULL auto_increment unique,
+    `first_name` varchar(45) NULL ,
+    `last_name`  varchar(45) NULL ,
+    `email`      varchar(255) NOT NULL ,
+    `password`   text NOT NULL ,
+    `role`       enum('author', 'admin') NOT NULL ,
+
+    PRIMARY KEY (`id`)
 );
 
+-- ************************************** `categories`
 
-CREATE TABLE User (
-user_id INT PRIMARY KEY,
-username VARCHAR(255),
-email VARCHAR(255),
-password VARCHAR(255),
-role_id INT,
-FOREIGN KEY (role_id) REFERENCES Roles(id)
+CREATE TABLE `categories`
+(
+    `id`   int NOT NULL auto_increment unique,
+    `name` varchar(255) NOT NULL ,
+    `create_at`   timestamp(0) NOT NULL DEFAULT NOW(),
+    `edit_at`     timestamp(0) NULL ,
+
+    PRIMARY KEY (`id`)
 );
 
+-- ************************************** `tags`
 
-CREATE TABLE Categorier (
-id_Categories INT PRIMARY KEY,
- name VARCHAR(255)
+CREATE TABLE `tags`
+(
+    `id`   int NOT NULL auto_increment unique,
+    `name` varchar(255) NOT NULL ,
+
+    PRIMARY KEY (`id`)
 );
 
-CREATE TABLE Tag (
-tag_id INT PRIMARY KEY,
- tag_name VARCHAR(255)
+-- ************************************** `articles`
+
+CREATE TABLE `articles`
+(
+    `id`          int NOT NULL auto_increment unique,
+    `title`       varchar(255) NOT NULL ,
+    `content`     text NOT NULL ,
+    `create_at`   timestamp(0) NOT NULL DEFAULT NOW(),
+    `edit_at`     timestamp(0) NULL ,
+    `status`      enum('published', 'archived') NOT NULL ,
+    `id_user`     int NOT NULL ,
+    `id_category` int NOT NULL ,
+
+    PRIMARY KEY (`id`),
+    KEY `FK_1` (`id_user`),
+    CONSTRAINT `FK_1` FOREIGN KEY `FK_1` (`id_user`) REFERENCES `users` (`id`),
+    KEY `FK_2` (`id_category`),
+    CONSTRAINT `FK_2` FOREIGN KEY `FK_2` (`id_category`) REFERENCES `categories` (`id`)
 );
 
-CREATE TABLE Wiki (
- id INT PRIMARY KEY,
- title VARCHAR(255),
- content TEXT,
- date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
- date_edit DATETIME ON UPDATE CURRENT_TIMESTAMP,
- user_id INT,
- id_Categories  INT,
- FOREIGN KEY (user_id) REFERENCES User(user_id),
- FOREIGN KEY (id_Categories) REFERENCES Categorier(id_Categories)
-);
+-- ************************************** `articles_tags`
 
-CREATE TABLE Wiki_Tag (
-  wiki_id INT,
-  tag_id INT,
-  PRIMARY KEY (wiki_id, tag_id),
-  FOREIGN KEY (wiki_id) REFERENCES Wiki(id),
-  FOREIGN KEY (tag_id) REFERENCES Tag(tag_id)
+CREATE TABLE `articles_tags`
+(
+    `id_article` int NOT NULL ,
+    `id_tag`     int NOT NULL ,
+
+    KEY `FK_1` (`id_article`),
+    CONSTRAINT `FK_3` FOREIGN KEY `FK_1` (`id_article`) REFERENCES `articles` (`id`),
+    KEY `FK_2` (`id_tag`),
+    CONSTRAINT `FK_4` FOREIGN KEY `FK_2` (`id_tag`) REFERENCES `tags` (`id`)
 );
