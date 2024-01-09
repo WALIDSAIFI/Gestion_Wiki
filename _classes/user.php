@@ -1,31 +1,38 @@
 <?php
 
-class user {
-    private  $id;
+class User {
+    private $id;
     private $username;
     private $password;
     private $email;
 
-    public function __construct($id){
+    public function __construct($id) {
         global $db;
-        $result = $db->query("SELECT * FROM user WHERE id = '$id'");
-        $user = $result->fetch_assoc();
-        $this->id = $user['users_id'];
+        $sql = "SELECT * FROM user WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->id = $user['id'];
         $this->username = $user['username'];
         $this->email = $user['email'];
         $this->password = $user['password'];
     }
+
     static public function getId($email) {
         global $db;
-        $sql = "SELECT id FROM user WHERE email = '$email'";
-        $result = $db->query($sql);
-        $row = $result->fetch_assoc();
-        if($row['id']){
+        $sql = "SELECT id FROM user WHERE email = :email";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row['id']) {
             return $row['id'];
         }
         return NULL;
     }
-
 
     public function getUsername() {
         return $this->username;
@@ -51,58 +58,50 @@ class user {
         $this->email = $email;
     }
 
-    static public function registre($username, $password, $email){
-        global  $db;
-        $result = $db->query("SELECT COUNT(*) as total FROM users");
-        $row = $result->fetch_assoc();
+    static public function register($username, $password, $email) {
+        global $db;
+        $result = $db->query("SELECT COUNT(*) as total FROM user");
+        $row = $result->fetch(PDO::FETCH_ASSOC);
         $totalUsers = $row['total'];
-        if ($totalUsers === '0') {
-            $id_role = 1;
-        } else {
-            $id_role = 2;
-        }
+
+        $id_role = ($totalUsers === '0') ? 1 : 2;
+
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO user (username, password, email, role_id) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO user (username, password, email, role_id) VALUES (:username, :password, :email, :id_role)";
         $insert = $db->prepare($sql);
-        $insert->bind_param("sssi", $username, $hashedPassword, $email, $id_role);
+        $insert->bindParam(':username', $username, PDO::PARAM_STR);
+        $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $insert->bindParam(':email', $email, PDO::PARAM_STR);
+        $insert->bindParam(':id_role', $id_role, PDO::PARAM_INT);
 
         $insert->execute();
     }
 
     static public function login($enteredPassword, $email) {
         global $db;
-        $sql_code = "SELECT * FROM user WHERE email = ?";
-        $stmt = $db->prepare($sql_code);
-        $stmt->bind_param("s", $email);
+        $sql = "SELECT * FROM user WHERE email = :email";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $hashedPassword = $row['password'];
-            if (password_verify($enteredPassword, $hashedPassword)) {
-                return true;
-            } else {
-                return false;
-            }
+        if ($result) {
+            $hashedPassword = $result['password'];
+            return password_verify($enteredPassword, $hashedPassword);
         }
 
+        return false;
     }
 
     static public function logout() {
         session_destroy();
-        header("index.php?page=login");
+        header("Location: index.php?page=login");
+        exit;
     }
 
-
-    static  public  function  getAll(){
+    static public function getAll() {
         global $db;
-        $result = $db->query("SELECT * FROM  user");
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $db->query("SELECT * FROM user");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
-
-
 }
-
