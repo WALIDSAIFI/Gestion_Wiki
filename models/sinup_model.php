@@ -1,14 +1,30 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST["req"]) && $_POST["req"] == "signup") {
+    $prenom = $_POST["prenom"];
+    $nom = $_POST["nom"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-    if (isset($_POST['registre']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email'])) {
+    $errors = [
+        "firstName_err" => Validation::validateUsername($prenom),
+        "lastName_err" => Validation::validateUsername($nom),
+        "email_err" => Validation::validateEmail($email),
+        "password_err" => Validation::validatePassword($password),
+        "userexists_err" => Validation::userChecker($email, $db),
+    ];
 
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        user::register($prenom,$nom,$email,$password);
+    if (array_filter($errors)) {
 
+        echo json_encode(["errors" => $errors]);
+
+        exit;
     }
+    
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+    user::register($prenom,$nom,$email,$password);
+    echo json_encode(["success" => "User registered successfully"]);
+    exit;
 }
+
+ 
