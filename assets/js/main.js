@@ -7,7 +7,7 @@ function validateForm() {
         alert('Tous les champs doivent être remplis');
         return false;
     }
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailRegex = /@gmail.com/;
     if (!emailRegex.test(email)) {
         alert('Veuillez entrer une adresse email valide');
         return false;
