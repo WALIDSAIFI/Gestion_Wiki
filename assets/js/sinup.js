@@ -6,16 +6,19 @@ signup.addEventListener('click', () => {
     const nom = document.getElementById('nom').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
-    
+    /* console.log(prenom);
+     console.log(nom);
+     console.log(email);
+     console.log(password);
+    */
     var formData = new FormData();
     formData.append('prenom', prenom);
     formData.append('nom', nom);
     formData.append('email', email);
     formData.append('password', password);
     formData.append('req', 'signup');
+    //console.log(formData);
 
-    
     $.ajax({
         type: "POST",
         url: "index.php?page=sinup",
@@ -24,7 +27,7 @@ signup.addEventListener('click', () => {
         contentType: false,
         success: (response) => {
             const data = JSON.parse(response);
-            // console.log(data);
+            
             if (data.success) {
                 alert(data.success);
             } else if (data.errors) {
