@@ -58,20 +58,20 @@ class User {
         $this->email = $email;
     }
 
-    static public function register($username, $password, $email) {
+    static public function register($first_name, $last_name, $email, $password) {
         global $db;
-        $result = $db->query("SELECT COUNT(*) as total FROM user");
+        $result = $db->query("SELECT COUNT(*) as total FROM users");
         $row = $result->fetch(PDO::FETCH_ASSOC);
         $totalUsers = $row['total'];
 
-        if($totalUsers == 0){
-            $role ='admin';
-        }else{
+        if ($totalUsers == 0) {
+            $role = 'admin';
+        } else {
             $role = 'author';
         }
+
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert user data into the 'users' table
         $sql = "INSERT INTO users (first_name, last_name, email, password, role) VALUES (:first_name, :last_name, :email, :password, :role)";
         $insert = $db->prepare($sql);
         $insert->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -79,8 +79,9 @@ class User {
         $insert->bindParam(':email', $email, PDO::PARAM_STR);
         $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
         $insert->bindParam(':role', $role, PDO::PARAM_STR);
-
+        $insert->execute();
     }
+
 
     static public function login($enteredPassword, $email) {
         global $db;
