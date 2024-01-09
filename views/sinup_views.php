@@ -9,7 +9,7 @@
                     <form  method="post"  action="index.php?page=sinup">
                         <div class="form-group">
                             <label for="username">Username:</label>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username"  onsubmit="return validateForm()">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
