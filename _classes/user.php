@@ -64,7 +64,7 @@ class User {
         $row = $result->fetch(PDO::FETCH_ASSOC);
         $totalUsers = $row['total'];
 
-        if($totalUsers === '0'){
+        if($totalUsers == 0){
             $id_role =1;
         }else{
             $id_role=2;
