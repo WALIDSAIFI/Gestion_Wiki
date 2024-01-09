@@ -64,7 +64,11 @@ class User {
         $row = $result->fetch(PDO::FETCH_ASSOC);
         $totalUsers = $row['total'];
 
-        $id_role = ($totalUsers === '0') ? 1 : 2;
+        if($totalUsers === '0'){
+            $id_role =1;
+        }else{
+            $id_role=2;
+        }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO user (username, password, email, role_id) VALUES (:username, :password, :email, :id_role)";
@@ -73,7 +77,6 @@ class User {
         $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
         $insert->bindParam(':email', $email, PDO::PARAM_STR);
         $insert->bindParam(':id_role', $id_role, PDO::PARAM_INT);
-
         $insert->execute();
     }
 
