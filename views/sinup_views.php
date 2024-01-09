@@ -6,7 +6,7 @@
                     <h2 class="mb-0">Register</h2>
                 </div>
                 <div class="card-body">
-                    <form action="index.php?page=login">
+                    <form  method="post"  action="index.php?page=sinup">
                         <div class="form-group">
                             <label for="username">Username:</label>
                             <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username">
@@ -19,7 +19,7 @@
                             <label for="password">Password:</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" name="registre" class="btn btn-primary btn-block">Register</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
