@@ -19,7 +19,7 @@
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <p class="mb-0">Don't have an account? <a href="#" class="text-primary">Register</a></p>
+                    <p class="mb-0">Don't have an account? <a href="index.php?page=sinup" class="text-primary">Register</a></p>
                 </div>
             </div>
         </div>
