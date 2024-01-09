@@ -65,19 +65,21 @@ class User {
         $totalUsers = $row['total'];
 
         if($totalUsers == 0){
-            $id_role =1;
+            $role ='admin';
         }else{
-            $id_role=2;
+            $role = 'author';
         }
-
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO user (username, password, email, role_id) VALUES (:username, :password, :email, :id_role)";
+
+        // Insert user data into the 'users' table
+        $sql = "INSERT INTO users (first_name, last_name, email, password, role) VALUES (:first_name, :last_name, :email, :password, :role)";
         $insert = $db->prepare($sql);
-        $insert->bindParam(':username', $username, PDO::PARAM_STR);
-        $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $insert->bindParam(':first_name', $first_name, PDO::PARAM_STR);
+        $insert->bindParam(':last_name', $last_name, PDO::PARAM_STR);
         $insert->bindParam(':email', $email, PDO::PARAM_STR);
-        $insert->bindParam(':id_role', $id_role, PDO::PARAM_INT);
-        $insert->execute();
+        $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $insert->bindParam(':role', $role, PDO::PARAM_STR);
+
     }
 
     static public function login($enteredPassword, $email) {
