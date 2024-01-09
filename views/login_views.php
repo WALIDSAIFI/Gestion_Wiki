@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-primary text-white text-center">
                     <h2 class="mb-0">Login</h2>
