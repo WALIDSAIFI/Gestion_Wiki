@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="" />
+    <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/dashdord_controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/dashdord_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/dashdord_views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_classes/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/_classes/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sinup_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/sinup_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sinup_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/sinup_views.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +63,7 @@
       <updated>1704705221120</updated>
       <workItem from="1704705222152" duration="1914000" />
       <workItem from="1704786872227" duration="3068000" />
+      <workItem from="1704791742242" duration="2229000" />
     </task>
     <servers />
   </component>
