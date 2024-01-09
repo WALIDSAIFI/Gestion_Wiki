@@ -110,4 +110,20 @@ class User {
         $result = $db->query("SELECT * FROM user");
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+    static function user_checker($email, $db)
+{
+    $sql = "SELECT * FROM users WHERE users_email = :email";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        return $result;
+    }
+
+    return false;
+}
+
 }
