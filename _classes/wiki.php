@@ -1,6 +1,6 @@
 <?php
 
-class Article
+class wiki
 {
 
     public $title;
@@ -46,8 +46,6 @@ class Article
 
 
     }
-
-
 
 
 
