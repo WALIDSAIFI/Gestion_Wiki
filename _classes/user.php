@@ -85,19 +85,27 @@ class User {
 
     static public function login($enteredPassword, $email) {
         global $db;
+
         $sql = "SELECT * FROM user WHERE email = :email";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result) {
-            $hashedPassword = $result['password'];
-            return password_verify($enteredPassword, $hashedPassword);
+        if ($user) {
+            $hashedPassword = $user['password'];
+
+            if (password_verify($enteredPassword, $hashedPassword)) {
+
+                return $user;
+                
+            } else {
+                return false;
+            }
         }
-
         return false;
     }
+
 
     static public function logout() {
         session_destroy();
