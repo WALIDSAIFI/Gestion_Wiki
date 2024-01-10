@@ -22,7 +22,7 @@ class User {
 
     static public function getId($email) {
         global $db;
-        $sql = "SELECT id FROM user WHERE email = :email";
+        $sql = "SELECT id FROM users WHERE email = :email";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -58,27 +58,27 @@ class User {
         $this->email = $email;
     }
 
-    static public function register($first_name, $last_name, $email, $password) {
+    static public function register($prenom,$nom,$email,$password) {
         global $db;
         $result = $db->query("SELECT COUNT(*) as total FROM users");
         $row = $result->fetch(PDO::FETCH_ASSOC);
         $totalUsers = $row['total'];
 
         if ($totalUsers == 0) {
-            $role = 'admin';
+            $roles = 'admin';
         } else {
-            $role = 'author';
+            $roles = 'author';
         }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (first_name, last_name, email, password, role) VALUES (:first_name, :last_name, :email, :password, :role)";
+        $sql = "INSERT INTO users (first_name, last_name, email, password, role) VALUES (:first_name, :last_name, :email, :password, :roles)";
         $insert = $db->prepare($sql);
-        $insert->bindParam(':first_name', $first_name, PDO::PARAM_STR);
-        $insert->bindParam(':last_name', $last_name, PDO::PARAM_STR);
+        $insert->bindParam(':first_name', $prenom, PDO::PARAM_STR);
+        $insert->bindParam(':last_name', $nom, PDO::PARAM_STR);
         $insert->bindParam(':email', $email, PDO::PARAM_STR);
         $insert->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-        $insert->bindParam(':role', $role, PDO::PARAM_STR);
+        $insert->bindParam(':roles', $roles, PDO::PARAM_STR);
         $insert->execute();
     }
 
@@ -112,7 +112,7 @@ class User {
     }
     static function user_checker($email, $db)
 {
-    $sql = "SELECT * FROM users WHERE users_email = :email";
+    $sql = "SELECT * FROM users WHERE email = :email";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
