@@ -1,10 +1,11 @@
 <?php
-
+ global $db;
 if (isset($_POST["req"]) && $_POST["req"] == "signup") {
     $prenom = $_POST["prenom"];
     $nom = $_POST["nom"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+
 
     $errors = [
         "firstName_err" => Validation::validateUsername($prenom),
