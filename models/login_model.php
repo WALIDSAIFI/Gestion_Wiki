@@ -12,21 +12,28 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
         echo json_encode(["errors" => $errors]);
         exit;
     }
+
+
      $user = user::login($password,$email);
+     if($user) {
+         $_SESSION['role'] = $user['role'];
+         $_SESSION['id'] = $user['id'];
+         $_SESSION['email'] = $user['email'];
 
-      $_SESSION['role'] =$user['role'];
-      $_SESSION['id'] = $user['id'];
-      $_SESSION['email'] = $user['email'];
 
-      
-      if($user['role'] == 'admin'){
-      header("http://localhost/WALID_SAIFI_Wiki/index.php?page=dashdord");
-      }else{
-          header("http://localhost/WALID_SAIFI_Wiki/index.php?page=home");
-      }
+         if ($user['role'] == 'author') {
 
-    echo json_encode(["success" => "User registered successfully"]);
-    exit;
+             echo json_encode(["redirect" => "index.php?page=home"]);
+             exit;
+         } else {
+
+             echo json_encode(["redirect" => "index.php?page=dashboard"]);
+             exit;
+         }
+     }
+
+    //echo json_encode(["success" => "User regist successfully"]);
+   // exit;
 
 }
 
