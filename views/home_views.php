@@ -32,6 +32,7 @@
 
 
 
+
     </div>
 </nav>
 
@@ -51,74 +52,74 @@
                     }
                     ?>
                 </p>
+                <div class="container">
+                    <select class="form-select mb-3" aria-label="Default select example">
+                        <option selected>Choix</option>
+                        <option value="1">Recherche par titre</option>
+                        <option value="2">TRecherche par titre</option>
+                    </select>
 
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ajouter un Wiki</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Titre:</label>
-                                        <input type="text" class="form-control" id="titre" name="titre">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Le contenu de Wiki:</label>
-                                        <textarea class="form-control" id="content" name="content"></textarea>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="selectMultiple" class="col-form-label">Ajouter les tag:</label>
-                                        <select multiple class="form-select" id="selectMultiple" name="selectMultiple">
-                                            <option value="option1">Option 1</option>
-                                            <option value="option2">Option 2</option>
-                                            <option value="option3">Option 3</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="selectMultiple" class="col-form-label">Ajouter la catégorie de Wiki : </label>
-                                        <select  class="form-select" id="selectMultiple" name="selectMultiple">
-                                            <option value="option1">Option 1</option>
-                                            <option value="option2">Option 2</option>
-                                            <option value="option3">Option 3</option>
-                                            =
-                                        </select>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" id="ajouter" name="ajouter" class="btn btn-primary">Ajouter</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
 
+            </div>
+    </section>
 
 
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un Wiki</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Titre:</label>
+                            <input type="text" class="form-control" id="titre" name="titre">
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Le contenu de Wiki:</label>
+                            <textarea class="form-control" id="content" name="content"></textarea>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="selectMultiple" class="col-form-label">Ajouter les tag:</label>
+                            <select multiple class="form-select" id="selectMultiple" name="selectMultiple">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selectMultiple" class="col-form-label">Ajouter la catégorie de Wiki : </label>
+                            <select  class="form-select" id="selectMultiple" name="selectMultiple">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                =
+                            </select>
+                        </div>
 
-
-
-
-
-
-
-
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="ajouter" name="ajouter" class="btn btn-primary">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
 
             </div>
         </div>
-    </section>
+    </div>
+
+
+
 
 
 
