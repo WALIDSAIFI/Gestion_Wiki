@@ -21,14 +21,33 @@ login.addEventListener('click', () => {
         data: formData,
         processData: false,
         contentType: false,
-        success: function(response) {
+        success: (response) => {
+            const data = JSON.parse(response);
 
-            console.log("Login successful:", response);
+            if (data.success) {
+                alert(data.success);
+            } else if (data.errors) {
+                var err = data.errors;
+                console.log(err);
+
+                if (err.email_err != false) {
+                    $("#email_err").text(err.email_err);
+                } else {
+                    $("#email_err").text('');
+                }
+                if (err.password_err != false) {
+                    $("#password_err").text(err.password_err);
+                } else {
+                    $("#password_err").text('');
+                }
+            }
         },
-        error: function(error) {
-            // Handle the error response here
+        error: function (error) {
             console.error("Error during login:", error);
         }
     });
+
+
+
 
 });
