@@ -20,13 +20,16 @@
         if (empty($_SESSION['email'])) {
             echo '<a href="index.php?page=login" class="btn btn-danger ml-auto">Login</a>';
         } else {
+            echo '<form action="index.php?page=home" method="post">';
             echo '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
           </svg>';
             echo '<span>' . $_SESSION['email'] . '</span>';
-            echo '<a href="index.php?page=logout" class="btn btn-danger ml-auto">Déconnexion</a>';
+            echo '<button type="submit"  name="logout" class="btn btn-danger ml-auto">Déconnexion</button>';
+            echo '</form>';
         }
         ?>
+
 
 
     </div>
@@ -37,12 +40,18 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                <h1 class="fw-light">Wiki - Wikipédia </h1>
+                <p class="lead text-muted">Bienvenue sur notre Wiki, une encyclopédie collaborative en français. Découvrez des informations passionnantes sur une variété de sujets, partagées et éditées par notre communauté. Explorez, apprenez et contribuez!</p>
                 <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                    <?php
+                    if(isset($_SESSION['email'])) {
+                        echo '<a href="#" class="btn btn-primary my-2">Ajouter Wiki</a>';
+
+                        echo '<a href="#" class="btn btn-secondary my-2">Modifier mes Wiki</a>';
+                    }
+                    ?>
                 </p>
+
             </div>
         </div>
     </section>
