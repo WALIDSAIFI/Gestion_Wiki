@@ -23,8 +23,7 @@ class Tag
             $stmt = $db->prepare($sql);
             $stmt->bindParam(':titre', $titre, PDO::PARAM_STR);
             $stmt->execute();
-
-
+            
     }
 
 
