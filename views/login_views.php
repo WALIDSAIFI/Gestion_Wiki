@@ -15,7 +15,7 @@
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" id="password" placeholder="Enter your password">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="button" id="login" name="login" class="btn btn-primary btn-block">Login</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
