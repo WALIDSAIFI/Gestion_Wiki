@@ -86,7 +86,7 @@ class User {
     static public function login($enteredPassword, $email) {
         global $db;
 
-        $sql = "SELECT * FROM user WHERE email = :email";
+        $sql = "SELECT * FROM users WHERE email = :email";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -98,7 +98,7 @@ class User {
             if (password_verify($enteredPassword, $hashedPassword)) {
 
                 return $user;
-                
+
             } else {
                 return false;
             }
