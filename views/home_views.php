@@ -54,9 +54,9 @@
                 </p>
                 <div class="container">
                     <select class="form-select mb-3" aria-label="Default select example">
-                        <option selected>Choix</option>
+                        <option selected>Choix de recherche </option>
                         <option value="1">Recherche par titre</option>
-                        <option value="2">TRecherche par titre</option>
+                        <option value="2">Recherche par titre</option>
                     </select>
 
                     <form class="d-flex">
