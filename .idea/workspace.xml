@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cf39c002-bdd2-4a70-9d1d-c5d46a658200.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cf39c002-bdd2-4a70-9d1d-c5d46a658200.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_classes/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/_classes/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/sinup.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/sinup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/login_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/login_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sinup_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/sinup_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/_layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/_layout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/login_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/login_views.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +68,7 @@
       <workItem from="1704705222152" duration="1914000" />
       <workItem from="1704786872227" duration="3068000" />
       <workItem from="1704791742242" duration="14503000" />
-      <workItem from="1704873458095" duration="3893000" />
+      <workItem from="1704873458095" duration="4826000" />
     </task>
     <servers />
   </component>
