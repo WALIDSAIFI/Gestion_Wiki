@@ -8,10 +8,10 @@ login.addEventListener('click', () => {
     console.log(email);
     console.log(password);
 
-    var formData = new  FormData();
-    formData.append('email',email);
-    formData.append('password',password);
-    formData.append('login','login');
+    var formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('login', 'login');
 
     console.log(formData);
 
@@ -24,8 +24,8 @@ login.addEventListener('click', () => {
         success: (response) => {
             const data = JSON.parse(response);
 
-            if (data.success) {
-                alert(data.success);
+            if (data.redirect) {
+                window.location.href = data.redirect;
             } else if (data.errors) {
                 var err = data.errors;
                 console.log(err);
@@ -46,8 +46,4 @@ login.addEventListener('click', () => {
             console.error("Error during login:", error);
         }
     });
-
-
-
-
 });
