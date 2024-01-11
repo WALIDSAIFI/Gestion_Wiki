@@ -19,7 +19,7 @@ class Categorie
 
     static public function ajouterCategorie($nom){
         global $db;
-        $sql = "INSERT INTO categories(nom) VALUES (:nom)";
+        $sql = "INSERT INTO categories(name) VALUES (:nom)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
         $stmt->execute();
