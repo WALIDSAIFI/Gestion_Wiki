@@ -29,13 +29,13 @@
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
                             <span data-feather="users"></span>
-                            Customers
+                          Liste des Wiki
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
-                            Reports
+                           List des Utilisateur
                         </a>
                     </li>
                 </ul>
@@ -127,5 +127,146 @@
                     </button>
                 </div>
             </div>
-            <p>ezoizefihhhhfezj nizefihezfihofze</p>
+
+
+
+
+
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-tags fa-2x"></i>
+                                <h5 class="card-title">Nombre de Tags</h5>
+                                <p class="card-text">100</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-folder fa-2x"></i>
+                                <h5 class="card-title">Nombre de Catégories</h5>
+                                <p class="card-text">50</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-book fa-2x"></i>
+                                <h5 class="card-title">Nombre de Wikis</h5>
+                                <p class="card-text">75</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-users fa-2x"></i>
+                                <h5 class="card-title">Nombre d'Utilisateurs</h5>
+                                <p class="card-text">500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="container mt-4">
+                <div class="row">
+                    <!-- Div pour les cartes d'informations -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-tags fa-2x"></i>
+                                <h5 class="card-title">Tags</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Nom de Tag</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Tag1</td>
+                                            <td class="d-flex justify-content-between">
+                                                <button class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-success">Éditer</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tag2</td>
+                                            <td class="d-flex justify-content-between">
+                                                <button class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-success">Éditer</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Ajoutez d'autres lignes selon vos besoins -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Div pour les catégories -->
+                    <div class="col-md-8 mb-3">
+                        <div class="card text-dark bg-warning">
+                            <div class="card-body">
+                                <i class="fas fa-folder fa-2x"></i>
+                                <h5 class="card-title">Catégories</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Nom de Catégorie</th>
+                                            <th scope="col">Date de Création</th>
+                                            <th scope="col">Date de Modification</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Catégorie 1</td>
+                                            <td>01/01/2022</td>
+                                            <td>02/01/2022</td>
+                                            <td class="d-flex justify-content-between">
+                                                <button class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-success">Éditer</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Catégorie 2</td>
+                                            <td>03/01/2022</td>
+                                            <td>04/01/2022</td>
+                                            <td class="d-flex justify-content-between">
+                                                <button class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-success">Éditer</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Ajoutez d'autres lignes selon vos besoins -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
         </main>
