@@ -30,6 +30,10 @@ signup.addEventListener('click', () => {
             
             if (data.success) {
                 alert(data.success);
+                document.getElementById('prenom').value = "" ;
+                document.getElementById('nom').value = "";
+                document.getElementById('email').value = "";
+                document.getElementById('password').value = "";
             } else if (data.errors) {
                 // console.log(data.errors);
                 var err= data.errors;
