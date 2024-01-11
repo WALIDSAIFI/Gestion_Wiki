@@ -46,7 +46,8 @@
                 <p>
                     <?php
                     if(isset($_SESSION['email'])) {
-                        echo ' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter un Wiki</button>';
+                        echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter un Wiki</button>';
+
 
                         echo '<a href="#" class="btn btn-secondary my-2">Modifier mes Wiki</a>';
                     }
@@ -67,6 +68,9 @@
 
             </div>
     </section>
+
+
+
 
 
 
@@ -117,6 +121,10 @@
             </div>
         </div>
     </div>
+
+
+
+
 
 
 
