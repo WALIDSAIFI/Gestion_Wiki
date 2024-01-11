@@ -56,6 +56,7 @@
                                 <label for="recipient-name" class="col-form-label">Titre:</label>
                                 <input type="text" class="form-control" id="titre" name="titre">
                             </div>
+                            <span id="titre_err" class="text-danger small"></span>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
