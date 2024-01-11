@@ -3,12 +3,32 @@
 class Validation
 {
 
-    static function validateUsername($lastName)
+    static function validateUsername($nomUtilisateur)
     {
-        if (empty($lastName)) {
-            return "Username is required";
-        } elseif (!preg_match('/^[a-zA-Z0-9]{3,}$/', $lastName)) {
-            return "Invalid username. Username should be at least 3 characters long.";
+        if (empty($nomUtilisateur)) {
+            return "Le nom d'utilisateur est requis.";
+        } elseif (!preg_match('/^[a-zA-Z0-9]{3,}$/', $nomUtilisateur)) {
+            return "Nom d'utilisateur invalide. Le nom d'utilisateur doit comporter au moins 3 caractères.";
+        }
+        return false;
+    }
+
+    static function validateTag($tag)
+    {
+        if (empty($tag)) {
+            return "Le tag est requis.";
+        } elseif (!preg_match('/^[a-zA-Z0-9]{3,}$/', $tag)) {
+            return "Tag invalide. Le tag doit comporter au moins 3 caractères.";
+        }
+        return false;
+    }
+
+    static function validateCategories($categories)
+    {
+        if (empty($categories)) {
+            return "Les catégories sont requises.";
+        } elseif (!preg_match('/^[a-zA-Z0-9]{3,}$/', $categories)) {
+            return "Catégories invalides. Les catégories doivent comporter au moins 3 caractères.";
         }
         return false;
     }
@@ -16,29 +36,28 @@ class Validation
     static function userChecker($email, $db)
     {
         if (user::user_checker($email, $db)) {
-            return "User already exists";
+            return "L'utilisateur existe déjà.";
         }
+        return false;
     }
-
 
     static function validateEmail($email)
     {
         if (empty($email)) {
-            return "Email is required";
+            return "L'adresse e-mail est requise.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return "Invalid email format.";
+            return "Format d'adresse e-mail invalide.";
         }
         return false;
     }
 
-    static function validatePassword($password)
+    static function validatePassword($motDePasse)
     {
-        if (empty($password)) {
-            return "Password is required";
-        } elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password)) {
-            return "Invalid password. Password should have at least 8 characters, including one uppercase letter, one lowercase letter, and one number.";
+        if (empty($motDePasse)) {
+            return "Le mot de passe est requis.";
+        } elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $motDePasse)) {
+            return "Mot de passe invalide. Le mot de passe doit comporter au moins 8 caractères, dont une lettre majuscule, une lettre minuscule et un chiffre.";
         }
         return false;
     }
-
 }
