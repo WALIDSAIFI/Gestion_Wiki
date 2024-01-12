@@ -87,33 +87,32 @@
                             <label for="recipient-name" class="col-form-label">Titre:</label>
                             <input type="text" class="form-control" id="titre" name="titre">
                         </div>
-
+                        <span id="titre_err" class="text-danger small"></span>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Le contenu de Wiki:</label>
                             <textarea class="form-control" id="content" name="content"></textarea>
                         </div>
-
+                        <span id="content_err" class="text-danger small"></span>
                         <div class="mb-3">
-                            <label for="selectMultiple" class="col-form-label">Ajouter les tag:</label>
-                            <select multiple class="form-select" id="selectMultiple" name="selectMultiple">
+                            <label for="selectMultiple" class="col-form-label">Ajouter les tags:</label>
+                            <select multiple class="form-select" id="tags" name="tags">
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3">Option 3</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="selectMultiple" class="col-form-label">Ajouter la catégorie de Wiki : </label>
-                            <select  class="form-select" id="selectMultiple" name="selectMultiple">
+                            <label for="category" class="col-form-label">Ajouter la catégorie de Wiki : </label>
+                            <select class="form-select" id="category" name="category">
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3">Option 3</option>
-                                =
                             </select>
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="ajouter" name="ajouter" class="btn btn-primary">Ajouter</button>
+                            <button type="button" id="ajouter_wiki" name="ajouter_wiki" class="btn btn-primary">Ajouter</button>
                         </div>
                     </form>
                 </div>
