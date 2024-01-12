@@ -191,9 +191,7 @@
                                 <h5 class="card-title">Tags</h5>
                                 <div class="table-responsive">
                                     <?php
-                                    // Include your database connection and Tag class definition here
 
-                                    // Fetch all tags
                                     $allTags = Tag::getAll_tag();
                                     ?>
 
@@ -213,11 +211,9 @@
                                                 <td><?= $tag['name']; ?></td>
                                                 <td class="d-flex justify-content-between">
                                                     <a href="index.php?page=dashbord&id=<?= $tag['id']; ?>" class="btn btn-danger">Supprimer</a>
-                                                    <button type="button" class="btn btn-primary"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal"
-                                                            data-bs-whatever="<?= $tag['name']; ?>">Edit
-                                                    </button>
+                                                    <a href="index.php?page=edittag&id=<?= $tag['id']; ?>" class="btn btn-primary">Edit</a>
+
+
 
                                                 </td>
                                             </tr>
@@ -310,29 +306,6 @@
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">modifier Tag :</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Tag :</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
