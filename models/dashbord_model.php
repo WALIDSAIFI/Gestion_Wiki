@@ -41,3 +41,13 @@ if (isset($_POST['ajouter_categories'])){
     exit;
 }
 
+
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    tag::delete_tag($id);
+}
+if(isset($_GET['id_cat'])){
+    $id=$_GET['id_cat'];
+    Categorie::deletcatgo($id);
+}
+
