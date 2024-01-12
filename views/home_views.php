@@ -97,10 +97,9 @@
                             <label for="selectMultiple" class="col-form-label">Ajouter les tags:</label>
                             <select multiple class="form-select" id="tags" name="tags[]">
                                 <?php
-                                // Fetch all tags from the database
+
                                 $allTags = Tag::getAll_tag();
 
-                                // Display options
                                 foreach ($allTags as $tag) {
                                     echo "<option value='" . $tag['id'] . "'>" . $tag['name'] . "</option>";
                                 }
