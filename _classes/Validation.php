@@ -60,4 +60,25 @@ class Validation
         }
         return false;
     }
+
+
+    static function validatetitre($titre)
+    {
+        if (empty($titre)) {
+            return "Le titre sont requises.";
+        } elseif (!preg_match('/^[a-zA-Z0-9]{3,}$/', $titre)) {
+            return "titre invalides. Les titres doivent comporter au moins 3 caractères.";
+        }
+        return false;
+    }
+    static function validateContent($content)
+    {
+        if (empty($content)) {
+            return "Le contenu est requis.";
+        } elseif (strlen($content) < 20) {
+            return "Contenu invalide. Le contenu doit comporter au moins 20 caractères.";
+        }
+        return false;
+    }
+
 }
