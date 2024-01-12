@@ -51,7 +51,7 @@ class wiki
             return false;
         }
     }
-    static  public function   getAllCatgorier(){
+    static  public function   getAllWiki(){
 
 
     }
