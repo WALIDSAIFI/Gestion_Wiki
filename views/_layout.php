@@ -24,6 +24,8 @@
 
     <footer></footer>
 
+
+
     <script src="<?= PATH ?>assets/js/main.js"></script>
     <script src="<?= PATH ?>assets/js/sinup.js"></script>
     <script src="<?= PATH ?>assets/js/login.js"></script>
