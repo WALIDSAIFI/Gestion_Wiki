@@ -7,7 +7,7 @@ if (isset($_POST['logout'])) {
 }
 
 if(isset($_POST['ajouter_wiki'])){
-
+    $id_user= $_SESSION['id'];
     $titre = $_POST['titre'];
     $content = $_POST['content'];
     $selectedTags = $_POST['selectedTags'];
@@ -18,11 +18,11 @@ if(isset($_POST['ajouter_wiki'])){
         "content" => Validation::validateContent($content),
     ];
 
-
     if (array_filter($errors)) {
 
         echo json_encode(["errors" => $errors]);
 
         exit;
     }
+ wiki::ajouterArticle($titre,$content,$id_user,$category);
 }
