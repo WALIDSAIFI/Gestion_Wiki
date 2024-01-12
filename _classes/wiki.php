@@ -32,20 +32,31 @@ class wiki
         $this->idCategory = $article['id_category'];
     }
 
-    public function ajouterArticle($title, $content, $idUser, $idCategory)
+    static public function ajouterArticle($title, $content, $idUser, $idCategory)
     {
-            global $db;
+        global $db;
 
-            $sql = "INSERT INTO articles (title, content, create_at, id_user, id_category, status) 
-                    VALUES (:title, :content, NOW(), :idUser, :idCategory, 'published')";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-            $stmt->bindParam(':content', $content, PDO::PARAM_STR);
-            $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
-            $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
+        $sql = "INSERT INTO articles (title, content, create_at, id_user, id_category, status) 
+            VALUES (:title, :content, NOW(), :idUser, :idCategory, 'published')";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+        $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+        $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            return $db->lastInsertId();
+        } else {
+            return false;
+        }
+    }
+    static  public function   getAllCatgorier(){
 
 
     }
+
+
 
 
 
