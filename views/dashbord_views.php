@@ -200,22 +200,29 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
+
                                             <th scope="col">Tag Name</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <tbody>
                                         <?php foreach ($allTags as $tag) : ?>
                                             <tr>
-                                                <td><?= $tag['id']; ?></td>
+
                                                 <td><?= $tag['name']; ?></td>
                                                 <td class="d-flex justify-content-between">
                                                     <a href="index.php?page=dashbord&id=<?= $tag['id']; ?>" class="btn btn-danger">Supprimer</a>
-                                                    <a href="index.php?page=edit_tag&id=<?= $tag['id']; ?>" class="btn btn-success">Éditer</a>
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal"
+                                                            data-bs-whatever="<?= $tag['name']; ?>">Edit
+                                                    </button>
+
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
+                                        </tbody>
                                         </tbody>
 
                                     </table>
@@ -271,6 +278,61 @@
             </div>
 
 
+            <div class="col-md-12 mb-3">
+                <div class="card text-dark bg-warning">
+                    <div class="card-body">
+                        <i class="fas fa-folder fa-2x"></i>
+                        <h5 class="card-title">Wiki</h5>
+                        <div class="table-responsive">
+
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">titre </th>
+                                    <th scope="col">content</th>
+                                    <th scope="col">Catgorier</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">modifier Tag :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Tag :</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
