@@ -38,6 +38,20 @@ class Tag
 
         return $tags;
     }
+    static public function get_tag($id)
+    {
+        global $db;
+
+        $sql = "SELECT * FROM tags WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $tag = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $tag;
+    }
+
     static public function update_tag($id, $newName)
     {
         global $db;
