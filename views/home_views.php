@@ -95,19 +95,33 @@
                         <span id="content_err" class="text-danger small"></span>
                         <div class="mb-3">
                             <label for="selectMultiple" class="col-form-label">Ajouter les tags:</label>
-                            <select multiple class="form-select" id="tags" name="tags">
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
+                            <select multiple class="form-select" id="tags" name="tags[]">
+                                <?php
+                                // Fetch all tags from the database
+                                $allTags = Tag::getAll_tag();
+
+                                // Display options
+                                foreach ($allTags as $tag) {
+                                    echo "<option value='" . $tag['id'] . "'>" . $tag['name'] . "</option>";
+                                }
+                                ?>
                             </select>
+
                         </div>
                         <div class="mb-3">
                             <label for="category" class="col-form-label">Ajouter la catégorie de Wiki : </label>
                             <select class="form-select" id="category" name="category">
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
+                                <?php
+
+                                $allCategories = Categorie::getAll_categorie();
+
+
+                                foreach ($allCategories as $category) {
+                                    echo "<option value='" . $category['id'] . "'>" . $category['name'] . "</option>";
+                                }
+                                ?>
                             </select>
+
                         </div>
 
                         <div class="modal-footer">
