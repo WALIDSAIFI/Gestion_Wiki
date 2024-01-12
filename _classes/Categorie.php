@@ -24,4 +24,42 @@ class Categorie
         $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
         $stmt->execute();
     }
+
+
+    static public function getAll_categorie()
+    {
+        global $db;
+
+        $sql = "SELECT * FROM categories";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $categories;
+    }
+    static public function update_catigo($id, $newName)
+    {
+        global $db;
+
+        $sql = "UPDATE categories SET name = :newName WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':newName', $newName, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    static public function deletcatgo($id)
+    {
+        global $db;
+
+        $sql = "DELETE FROM categories WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+
 }
