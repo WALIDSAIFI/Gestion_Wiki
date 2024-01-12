@@ -190,31 +190,36 @@
                                 <i class="fas fa-tags fa-2x"></i>
                                 <h5 class="card-title">Tags</h5>
                                 <div class="table-responsive">
+                                    <?php
+                                    // Include your database connection and Tag class definition here
+
+                                    // Fetch all tags
+                                    $allTags = Tag::getAll_tag();
+                                    ?>
+
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">Nom de Tag</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Tag Name</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Tag1</td>
-                                            <td class="d-flex justify-content-between">
-                                                <button class="btn btn-danger">Supprimer</button>
-                                                <button class="btn btn-success">Éditer</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tag2</td>
-                                            <td class="d-flex justify-content-between">
-                                                <button class="btn btn-danger">Supprimer</button>
-                                                <button class="btn btn-success">Éditer</button>
-                                            </td>
-                                        </tr>
-                                        <!-- Ajoutez d'autres lignes selon vos besoins -->
+                                        <?php foreach ($allTags as $tag) : ?>
+                                            <tr>
+                                                <td><?= $tag['id']; ?></td>
+                                                <td><?= $tag['name']; ?></td>
+                                                <td class="d-flex justify-content-between">
+                                                    <a href="index.php?page=dashbord&id=<?= $tag['id']; ?>" class="btn btn-danger">Supprimer</a>
+                                                    <a href="index.php?page=edit_tag&id=<?= $tag['id']; ?>" class="btn btn-success">Éditer</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
+
                                     </table>
+
                                 </div>
                             </div>
                         </div>
@@ -227,6 +232,13 @@
                                 <i class="fas fa-folder fa-2x"></i>
                                 <h5 class="card-title">Catégories</h5>
                                 <div class="table-responsive">
+                                    <?php
+                                    // Include your database connection and Categorie class definition here
+
+                                    // Fetch all categories
+                                    $allCategories = Categorie::getAll_categorie();
+                                    ?>
+
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -237,27 +249,20 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Catégorie 1</td>
-                                            <td>01/01/2022</td>
-                                            <td>02/01/2022</td>
-                                            <td class="d-flex justify-content-between">
-                                                <button class="btn btn-danger">Supprimer</button>
-                                                <button class="btn btn-success">Éditer</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Catégorie 2</td>
-                                            <td>03/01/2022</td>
-                                            <td>04/01/2022</td>
-                                            <td class="d-flex justify-content-between">
-                                                <button class="btn btn-danger">Supprimer</button>
-                                                <button class="btn btn-success">Éditer</button>
-                                            </td>
-                                        </tr>
-                                        <!-- Ajoutez d'autres lignes selon vos besoins -->
+                                        <?php foreach ($allCategories as $category) : ?>
+                                            <tr>
+                                                <td><?= $category['name']; ?></td>
+                                                <td><?= $category['create_at']; ?></td>
+                                                <td><?= $category['edit_at']; ?></td>
+                                                <td class="d-flex justify-content-between">
+                                                    <a href="index.php?page=dashbord&id_cat=<?= $category['id']; ?>" class="btn btn-danger">Supprimer</a>
+                                                    <button class="btn btn-success" onclick="editCategory(<?= $category['id']; ?>)">Éditer</button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
