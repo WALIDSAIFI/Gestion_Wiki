@@ -26,5 +26,41 @@ class Tag
             
     }
 
+    static public function getAll_tag()
+    {
+        global $db;
+
+        $sql = "SELECT * FROM tags";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $tags;
+    }
+    static public function update_tag($id, $newName)
+    {
+        global $db;
+
+        $sql = "UPDATE tags SET name = :newName WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':newName', $newName, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    static public function delete_tag($id)
+    {
+        global $db;
+
+        $sql = "DELETE FROM tags WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+
 
 }
