@@ -35,17 +35,12 @@
 </nav>
 
 <?php
-// Supposons que vous avez déjà inclus votre fichier contenant la définition de la fonction et la configuration de la base de données.
 
-// Récupérer l'ID depuis la requête GET
-$id = isset($_GET['id']) ? $_GET['id'] : null;
 
-// Vérifier si l'ID est présent
-if ($id) {
-    // Appeler la fonction pour récupérer les données de l'article
-    $article = wiki::get_Wiki($id);
 
-    // Vérifier si l'article existe
+
+
+
     if ($article) {
         ?>
         <section class="py-5 text-center container">
@@ -64,17 +59,7 @@ if ($id) {
                 </div>
             </div>
         </section>
-        <?php
-    } else {
-        // Gérer le cas où l'article n'est pas trouvé
-        echo "Article non trouvé.";
-    }
-} else {
-    // Gérer le cas où l'ID n'est pas présent dans la requête GET
-    echo "ID d'article non spécifié.";
-}
-?>
-
+<?php } ?>
 
 
 
