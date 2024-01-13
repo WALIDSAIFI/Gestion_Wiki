@@ -6,12 +6,13 @@ if(isset($_GET['id'])){
 
 }
 if(isset($_POST['modifier'])){
+
     $id=$_GET['id'];
    $name = $_POST['titre'];
    Tag::update_tag($id,$name);
 
+    header("Location: http://localhost/WALID_SAIFI_Wiki/index.php?page=dashboard");
 
-    header("http://localhost/WALID_SAIFI_Wiki/index.php?page=dashboard");
 
 
 }
