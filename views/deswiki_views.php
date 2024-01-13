@@ -53,7 +53,7 @@ if ($id) {
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <div class="card bg-dark text-white">
                         <div class="card-body">
-                            <h1 class="card-title"><?php echo $article['title']; ?></h1>
+                            <h1 class="card-title bg-warning text-white p-3"><?php echo $article['title']; ?></h1>
                             <p class="card-text">
                                 Date de création: <?php echo date('F j, Y', strtotime($article['create_at'])); ?><br>
                                 Catégorie: <?php echo $article['id_category']; ?>
@@ -66,14 +66,15 @@ if ($id) {
         </section>
         <?php
     } else {
-
+        // Gérer le cas où l'article n'est pas trouvé
         echo "Article non trouvé.";
     }
 } else {
-
+    // Gérer le cas où l'ID n'est pas présent dans la requête GET
     echo "ID d'article non spécifié.";
 }
 ?>
+
 
 
 
