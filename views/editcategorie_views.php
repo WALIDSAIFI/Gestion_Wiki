@@ -188,12 +188,13 @@
                                     <form action="" method="post">
                                         <div class="mb-3">
                                             <label for="titre" class="form-label">Nouveau name de Catégories :</label>
-                                            <input type="text" class="form-control" id="cat" name="cat" value="<?php echo $cat['name']; ?>">
+                                            <input type="text" class="form-control" id="cat" name="cat" value="<?php echo isset($cat['name']) ? $cat['name'] : ""; ?>
+">
 
                                         </div>
                                         <span id="titre_err" class="text-danger small"></span>
                                         <div class="text-center">
-                                            <button type="submit"  name="modifier" class="btn btn-primary">Modifier</button>
+                                            <button type="submit"  name="modifier_cat" class="btn btn-primary">Modifier</button>
                                         </div>
                                     </form>
                                 </div>
