@@ -55,4 +55,11 @@ $nbrCat=Categorie::getNombreCategories();
 $nbrTag = Tag::getNombreTags();
 $nbruser = user::getNombreUtilisateurs();
 $nbrwiki  = Wiki::getNombreWiki();
+$articles = wiki::getAllWiki();
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    wiki::softDeleteArticle($id);
+
+}
 
