@@ -54,8 +54,12 @@ class Categorie
     }
 
 
-
-    static public function update_catigo($id, $newName)
+    /** Method For Updating Categories:
+     * @param $id
+     * @param $newName
+     * @return bool
+     */
+    static public function update_categorie($id, $newName)
     {
         global $db;
 
@@ -63,8 +67,11 @@ class Categorie
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':newName', $newName, PDO::PARAM_STR);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-        return $stmt->execute();
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
