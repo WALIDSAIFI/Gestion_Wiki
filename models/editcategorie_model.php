@@ -13,3 +13,8 @@ if(isset($_POST['modifier'])){
 
 
 }
+
+$nbrCat=Categorie::getNombreCategories();
+$nbrTag = Tag::getNombreTags();
+$nbruser = user::getNombreUtilisateurs();
+$nbrwiki  = Wiki::getNombreWiki();
