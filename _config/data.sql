@@ -1,3 +1,5 @@
+-- ************************************** `users`
+
 CREATE TABLE `users`
 (
     `id`         int NOT NULL auto_increment unique,
@@ -47,9 +49,9 @@ CREATE TABLE `articles`
 
     PRIMARY KEY (`id`),
     KEY `FK_1` (`id_user`),
-    CONSTRAINT `FK_1` FOREIGN KEY `FK_1` (`id_user`) REFERENCES `users` (`id`),
+    CONSTRAINT `FK_1` FOREIGN KEY `FK_1` (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE,
     KEY `FK_2` (`id_category`),
-    CONSTRAINT `FK_2` FOREIGN KEY `FK_2` (`id_category`) REFERENCES `categories` (`id`)
+    CONSTRAINT `FK_2` FOREIGN KEY `FK_2` (`id_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE
 );
 
 -- ************************************** `articles_tags`
@@ -60,7 +62,7 @@ CREATE TABLE `articles_tags`
     `id_tag`     int NOT NULL ,
 
     KEY `FK_1` (`id_article`),
-    CONSTRAINT `FK_3` FOREIGN KEY `FK_1` (`id_article`) REFERENCES `articles` (`id`),
+    CONSTRAINT `FK_3` FOREIGN KEY `FK_1` (`id_article`) REFERENCES `articles` (`id`) ON DELETE CASCADE,
     KEY `FK_2` (`id_tag`),
-    CONSTRAINT `FK_4` FOREIGN KEY `FK_2` (`id_tag`) REFERENCES `tags` (`id`)
+    CONSTRAINT `FK_4` FOREIGN KEY `FK_2` (`id_tag`) REFERENCES `tags` (`id`) ON DELETE CASCADE
 );
