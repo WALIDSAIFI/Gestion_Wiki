@@ -268,37 +268,45 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="col-md-12 mb-3">
-                <div class="card text-dark bg-warning">
+                <div class="card text-white bg-dark">
                     <div class="card-body">
                         <i class="fas fa-folder fa-2x"></i>
                         <h5 class="card-title">Wiki</h5>
                         <div class="table-responsive">
-
-
-                            <table class="table">
+                            <table class="table table-dark">
                                 <thead>
                                 <tr>
-                                    <th scope="col">titre </th>
-                                    <th scope="col">content</th>
-                                    <th scope="col">Catgorier</th>
+                                    <th scope="col">Titre</th>
+                                    <th scope="col">Contenu</th>
+                                    <th scope="col">Auteur</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
-
+                                <?php foreach ($articles as $article) : ?>
+                                    <tr>
+                                        <td><?= $article['title']; ?></td>
+                                        <td><?= addLineBreaks($article['content']); ?></td>
+                                        <td><?= $article['first_name'] . ' ' . $article['last_name']; ?></td>
+                                        <td class="d-flex justify-content-between">
+                                            <a href="index.php?page=dashbord&id=<?= $article['id']; ?>" class="btn btn-primary">Archiver</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
-
+                            <?php
+                            function addLineBreaks($content)
+                            {
+                                $contentWithBreaks = wordwrap($content, 50, "<br>\n", true);
+                                return $contentWithBreaks;
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-</div>
 
 
 
