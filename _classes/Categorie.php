@@ -38,17 +38,35 @@ class Categorie
 
         return $categories;
     }
+
+    static public function get_categorie($id)
+    {
+        global $db;
+
+        $sql = "SELECT * FROM categories WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $categorie = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $categorie;
+    }
+
+
+
     static public function update_catigo($id, $newName)
     {
         global $db;
 
-        $sql = "UPDATE categories SET name = :newName WHERE id = :id";
+        $sql = "UPDATE categories SET name = :newName, edit_at = NOW() WHERE id = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':newName', $newName, PDO::PARAM_STR);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         return $stmt->execute();
     }
+
 
     static public function deletcatgo($id)
     {
