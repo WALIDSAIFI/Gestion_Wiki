@@ -51,11 +51,44 @@ class wiki
             return false;
         }
     }
-    static  public function   getAllWiki(){
 
+    static public function getNombreWiki()
+    {
+        global $db;
 
+        $sql = "SELECT COUNT(*) as count FROM articles";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'];
     }
+    static public function getAllWiki()
+    {
+        global $db;
 
+        $sql = "SELECT * FROM articles";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $articles;
+    }
+    static public function get_Wiki($id)
+    {
+        global $db;
+
+        $sql = "SELECT * FROM articles WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $article = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $article;
+    }
 
 
 
