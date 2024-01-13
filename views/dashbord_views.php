@@ -254,7 +254,7 @@
                                                 <td><?= $category['edit_at']; ?></td>
                                                 <td class="d-flex justify-content-between">
                                                     <a href="index.php?page=dashbord&id_cat=<?= $category['id']; ?>" class="btn btn-danger">Supprimer</a>
-                                                    <a href="index.php?page=editCategorie&id=<?= $category['id']; ?>" class="btn btn-primary">Éditer</a>
+                                                    <a href="index.php?page=editcategorie&id_cat=<?= $category['id']; ?>" class="btn btn-primary">Éditer</a>
 
                                                 </td>
                                             </tr>
