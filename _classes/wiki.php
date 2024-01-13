@@ -101,12 +101,14 @@ class wiki
     {
         global $db;
 
-        $result = $db->query("SELECT articles.*, users.first_name
-        FROM articles
-        JOIN users ON articles.id_user = users.id
-        WHERE articles.status = 'published'
-        ORDER BY create_at DESC
-        LIMIT 5;
+        $result = $db->query("SELECT articles.*, users.first_name, categories.*,articles.id as id_article
+FROM articles
+JOIN users ON articles.id_user = users.id
+JOIN categories ON articles.id_category = categories.id
+WHERE articles.status = 'published'
+ORDER BY articles.create_at DESC
+LIMIT 5;
+
         ");
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
