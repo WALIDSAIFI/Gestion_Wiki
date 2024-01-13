@@ -23,7 +23,7 @@ class Tag
             $stmt = $db->prepare($sql);
             $stmt->bindParam(':titre', $titre, PDO::PARAM_STR);
             $stmt->execute();
-            
+
     }
 
     static public function getAll_tag()
@@ -74,6 +74,21 @@ class Tag
 
         return $stmt->execute();
     }
+
+    static public function getNombreTags()
+    {
+        global $db;
+
+        $sql = "SELECT COUNT(*) as count FROM tags";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'];
+    }
+
+
 
 
 
