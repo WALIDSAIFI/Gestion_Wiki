@@ -118,16 +118,11 @@
                 <h1 class="h2">Dashboard</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
+
                 </div>
             </div>
-
 
 
 
@@ -139,7 +134,7 @@
                             <div class="card-body">
                                 <i class="fas fa-tags fa-2x"></i>
                                 <h5 class="card-title">Nombre de Tags</h5>
-                                <p class="card-text">100</p>
+                                <p class="card-text"><?php echo $nbrTag;   ?></p>
                             </div>
                         </div>
                     </div>
@@ -149,7 +144,8 @@
                             <div class="card-body">
                                 <i class="fas fa-folder fa-2x"></i>
                                 <h5 class="card-title">Nombre de Catégories</h5>
-                                <p class="card-text">50</p>
+                                <p class="card-text"><?php echo $nbrCat; ?></p>
+
                             </div>
                         </div>
                     </div>
@@ -159,7 +155,7 @@
                             <div class="card-body">
                                 <i class="fas fa-book fa-2x"></i>
                                 <h5 class="card-title">Nombre de Wikis</h5>
-                                <p class="card-text">75</p>
+                                <p class="card-text"><?php echo$nbrwiki; ?></p>
                             </div>
                         </div>
                     </div>
@@ -169,7 +165,7 @@
                             <div class="card-body">
                                 <i class="fas fa-users fa-2x"></i>
                                 <h5 class="card-title">Nombre d'Utilisateurs</h5>
-                                <p class="card-text">500</p>
+                                <p class="card-text"><?php echo $nbruser; ?></p>
                             </div>
                         </div>
                     </div>
