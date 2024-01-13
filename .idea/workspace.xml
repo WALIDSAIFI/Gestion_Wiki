@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/deswiki_controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/deswiki_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/deswiki_views.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_classes/wiki.php" beforeDir="false" afterPath="$PROJECT_DIR$/_classes/wiki.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/home_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/home_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home_views.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +79,7 @@
       <workItem from="1705046642089" duration="21491000" />
       <workItem from="1705096617562" duration="1219000" />
       <workItem from="1705097865545" duration="6313000" />
+      <workItem from="1705143677353" duration="3251000" />
     </task>
     <servers />
   </component>
