@@ -134,4 +134,41 @@ class User {
     return false;
 }
 
+
+    static public function getNombreUtilisateurs()
+    {
+        global $db;
+
+        $sql = "SELECT COUNT(*) as count FROM users";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'];
+    }
+
+    static public function softDeleteArticle($id)
+    {
+        global $db;
+        $stmt = $db->prepare("UPDATE articles SET status = 'archived' WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    static function getTheLatestWiki()
+    {
+        global $db;
+
+        $result = $db->query("SELECT articles.*, users.firstname
+        FROM articles
+        JOIN users ON articles.id_user = users.id
+        WHERE articles.status = 'published'
+        ORDER BY create_at DESC
+        LIMIT 5;
+        ");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }
