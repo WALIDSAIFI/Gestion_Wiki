@@ -23,5 +23,6 @@ if (in_array($page . '_controller.php', $all_pages)) {
     include_once 'models/' . $page . '_model.php';
     include_once 'views/_layout.php';
 } else {
-    header('Location: 404.html');
+    include_once '404.html';
+    exit();
 }
