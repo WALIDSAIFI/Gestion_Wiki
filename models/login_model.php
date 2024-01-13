@@ -27,7 +27,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
              exit;
          } else {
 
-             echo json_encode(["redirect" => "index.php?page=dashboard"]);
+             echo json_encode(["redirect" => "index.php?page=dashbord"]);
              exit;
          }
      }
