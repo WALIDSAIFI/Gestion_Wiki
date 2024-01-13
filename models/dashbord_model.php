@@ -51,3 +51,8 @@ if(isset($_GET['id_cat'])){
     Categorie::deletcatgo($id);
 }
 
+$nbrCat=Categorie::getNombreCategories();
+$nbrTag = Tag::getNombreTags();
+$nbruser = user::getNombreUtilisateurs();
+$nbrwiki  = Wiki::getNombreWiki();
+
