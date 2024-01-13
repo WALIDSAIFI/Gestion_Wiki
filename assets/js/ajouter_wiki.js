@@ -13,11 +13,10 @@ ajouter_wiki.addEventListener('click', () => {
     formData.append('content', content);
     formData.append('selectedTags', selectedTags);
     formData.append('category', category);
-    formData.append('ajouter_wiki',ajouter_wiki);
+    formData.append('ajouter_wiki', ajouter_wiki);
 
     console.log(formData);
     console.log(selectedTags);
-
 
     $.ajax({
         type: "POST",
@@ -31,28 +30,30 @@ ajouter_wiki.addEventListener('click', () => {
 
             if (data.success) {
                 alert(data.success);
-            }else {
+                document.getElementById('titre').value = "";
+                document.getElementById('content').value = "";
+                document.getElementById('category').value = "";
+
+
+            } else {
                 if (data.errors) {
-                    var err= data.errors;
-                    if(err.titre!= false) {
+                    var err = data.errors;
+                    if (err.titre !== false) {
                         $("#titre_err").text(err.titre);
-                    }else {
+                    } else {
                         $("#titre_err").text("");
                     }
-                    }if(err.content !=  false){
+
+                    if (err.content !== false) {
                         $("#content_err").text(err.content);
-                    }else{
-                    $("#content_err").text("");
+                    } else {
+                        $("#content_err").text("");
+                    }
                 }
             }
-
-
-
         },
         error: (error) => {
             console.log(error);
         }
     });
-
-
 });
