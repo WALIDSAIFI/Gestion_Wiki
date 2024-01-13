@@ -100,6 +100,22 @@ class wiki
 
         return $articles;
     }
+    static public function getAllWiki_archive()
+    {
+        global $db;
+
+        $sql = "SELECT articles.*, users.first_name, users.last_name,users.email
+            FROM articles 
+            JOIN users ON articles.id_user = users.id
+            WHERE articles.status = 'archived'";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $articles;
+    }
 
     static public function softDeleteArticle($id)
     {
@@ -125,8 +141,23 @@ LIMIT 5;
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function addLineBreaks($content)
+    {
+        $contentWithBreaks = wordwrap($content, 50, "<br>\n", true);
+        return $contentWithBreaks;
+    }
 
- 
+    static public function deracheve_Wki($id){
+        global $db;
+        $Sql = "UPDATE articles SET status = 'published' WHERE id = :wikiId";
+        $updateStmt = $db->prepare($Sql);
+        $updateStmt->bindParam(':wikiId', $id, PDO::PARAM_INT);
+        $updateStmt->execute();
+    }
+
+
+
+
 
 
 
