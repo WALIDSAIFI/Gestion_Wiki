@@ -26,3 +26,5 @@ if(isset($_POST['ajouter_wiki'])){
     }
  wiki::ajouterArticle($titre,$content,$id_user,$category);
 }
+
+$latestWiki = wiki::getTheLatestWiki();
