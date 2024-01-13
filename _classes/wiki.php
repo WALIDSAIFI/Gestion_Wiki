@@ -45,12 +45,19 @@ class wiki
         $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
 
-        if ($stmt->execute()) {
+        $stmt->execute();
             return $db->lastInsertId();
-        } else {
-            return false;
         }
+    static public function insertTags($id_Tag, $id_article) {
+        global $db;
+
+        $sql = "INSERT INTO articles_tags (id_article, id_tag) VALUES (:id_article, :id_tag)";
+        $stm = $db->prepare($sql);
+        $stm->bindParam(':id_article', $id_article, PDO::PARAM_INT);
+        $stm->bindParam(':id_tag', $id_Tag, PDO::PARAM_INT);
+        $stm->execute();
     }
+
 
     static public function getNombreWiki()
     {
