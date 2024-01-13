@@ -12,7 +12,9 @@ if(isset($_POST['modifier'])){
    Tag::update_tag($id,$name);
 
     header("Location: http://localhost/WALID_SAIFI_Wiki/index.php?page=dashboard");
-
-
-
 }
+
+$nbrCat=Categorie::getNombreCategories();
+$nbrTag = Tag::getNombreTags();
+$nbruser = user::getNombreUtilisateurs();
+$nbrwiki  = Wiki::getNombreWiki();
