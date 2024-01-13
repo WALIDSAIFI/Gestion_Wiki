@@ -64,11 +64,35 @@ class wiki
 
         return $result['count'];
     }
+
+    static public function get_Wiki($id)
+    {
+        global $db;
+
+        $sql = "SELECT articles.*, users.first_name, users.last_name 
+            FROM articles 
+            JOIN users ON articles.id_user = users.id
+            WHERE articles.id_user = :id AND articles.status = 'published'";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $articles;
+    }
+
+
     static public function getAllWiki()
     {
         global $db;
 
-        $sql = "SELECT * FROM articles";
+        $sql = "SELECT articles.*, users.first_name, users.last_name,users.email
+            FROM articles 
+            JOIN users ON articles.id_user = users.id
+            WHERE articles.status = 'published'";
+
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
@@ -76,19 +100,7 @@ class wiki
 
         return $articles;
     }
-    static public function get_Wiki($id)
-    {
-        global $db;
 
-        $sql = "SELECT * FROM articles WHERE id = :id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        $article = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $article;
-    }
     static public function softDeleteArticle($id)
     {
         global $db;
