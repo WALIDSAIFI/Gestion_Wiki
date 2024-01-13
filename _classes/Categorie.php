@@ -78,6 +78,18 @@ class Categorie
 
         return $stmt->execute();
     }
+    static public function getNombreCategories()
+    {
+        global $db;
+
+        $sql = "SELECT COUNT(*) as count FROM categories";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'];
+    }
 
 
 }
