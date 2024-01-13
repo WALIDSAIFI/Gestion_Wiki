@@ -69,10 +69,10 @@ class wiki
     {
         global $db;
 
-        $sql = "SELECT articles.*, users.first_name, users.last_name 
-            FROM articles 
-            JOIN users ON articles.id_user = users.id
-            WHERE articles.id_user = :id AND articles.status = 'published'";
+        $sql = "SELECT articles.*,users.*
+                FROM articles 
+                JOIN users ON articles.id_user = users.id
+                WHERE articles.id = :id";
 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
