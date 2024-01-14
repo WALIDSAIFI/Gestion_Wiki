@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home_views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/deswiki_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/deswiki_controller.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +77,7 @@
       <workItem from="1705173166311" duration="12251000" />
       <workItem from="1705228371098" duration="51000" />
       <workItem from="1705229491457" duration="7581000" />
-      <workItem from="1705253040273" duration="1916000" />
+      <workItem from="1705253040273" duration="2435000" />
     </task>
     <servers />
   </component>
