@@ -93,8 +93,9 @@
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="index.php?page=deswiki&id=<?php echo $article['id']; ?>" class="btn btn-sm btn-outline-secondary">View</a>
-                                        <a href="index.php?page=meswiki&id=<?php echo $article['id']; ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                        <a href="index.php?page=deswiki&id=<?php echo $article['id']; ?>" class="btn btn-sm btn-outline-secondary">Voir</a>
+                                        <a href="index.php?page=editwiki&id=<?php echo $article['id']; ?>" class="btn btn-sm btn-outline-secondary">Éditer</a>
+                                        <a href="index.php?page=meswiki&id=<?php echo $article['id']; ?>" class="btn btn-sm btn-outline-secondary">Supprimer</a>
 
                                     </div>
                                     <small class="text-muted"><?php echo $article['create_at']; ?></small>
