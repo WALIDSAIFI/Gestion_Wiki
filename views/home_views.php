@@ -184,12 +184,11 @@
 
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo "Auteur : " . $article['first_name']; ?></h5>
-                                <h5 class="card-title"><?php echo "Auteur : " . $article['name']; ?></h5>
-                                <p class="card-text"><?php echo $article['content']; ?></p>
+
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="index.php?page=deswiki&id=<?php echo $article['id_article']; ?>" class="btn btn-sm btn-outline-secondary">View</a>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                       
                                     </div>
                                     <small class="text-muted"><?php echo $article['create_at']; ?></small>
                                 </div>
