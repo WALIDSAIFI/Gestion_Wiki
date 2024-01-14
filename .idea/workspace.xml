@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b97a9ee-0b56-410b-8432-110170049894" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/editwiki_controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/editwiki_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/editwiki_views.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_classes/wiki.php" beforeDir="false" afterPath="$PROJECT_DIR$/_classes/wiki.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/ajouter_wiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ajouter_wiki.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/home_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/home_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/meswiki_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/meswiki_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/meswiki_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/meswiki_views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/login_views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sinup_views.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/sinup_views.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +78,7 @@
       <workItem from="1705143677353" duration="10487000" />
       <workItem from="1705173166311" duration="12251000" />
       <workItem from="1705228371098" duration="51000" />
-      <workItem from="1705229491457" duration="4252000" />
+      <workItem from="1705229491457" duration="4627000" />
     </task>
     <servers />
   </component>
