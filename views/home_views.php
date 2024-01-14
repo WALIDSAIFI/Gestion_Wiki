@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php?page=home">Home</a>
                 </li>
 
             </ul>
@@ -44,7 +44,7 @@
                         echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter un Wiki</button>';
 
 
-                        echo '<a href="#" class="btn btn-secondary my-2">Modifier mes Wiki</a>';
+                        echo '<a href="index.php?page=meswiki" class="btn btn-secondary my-2">Modifier mes Wiki</a>';
                     }
                     ?>
                 </p>
@@ -188,7 +188,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="index.php?page=deswiki&id=<?php echo $article['id_article']; ?>" class="btn btn-sm btn-outline-secondary">View</a>
-                                       
+
                                     </div>
                                     <small class="text-muted"><?php echo $article['create_at']; ?></small>
                                 </div>
