@@ -48,15 +48,7 @@ class wiki
         $stmt->execute();
             return $db->lastInsertId();
         }
-    static public function insertTags($id_Tag, $id_article) {
-        global $db;
 
-        $sql = "INSERT INTO articles_tags (id_article, id_tag) VALUES (:id_article, :id_tag)";
-        $stm = $db->prepare($sql);
-        $stm->bindParam(':id_article', $id_article, PDO::PARAM_INT);
-        $stm->bindParam(':id_tag', $id_Tag, PDO::PARAM_INT);
-        $stm->execute();
-    }
 
 
     static public function getNombreWiki()
@@ -161,6 +153,47 @@ LIMIT 5;
         $updateStmt->bindParam(':wikiId', $id, PDO::PARAM_INT);
         $updateStmt->execute();
     }
+
+
+    static public function getCategoryDetails($idArticle)
+    {
+        global $db;
+
+        $sql = "SELECT categories.name AS category_name
+                FROM articles
+                JOIN categories ON articles.id_category = categories.id
+                WHERE articles.id = :idArticle";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':idArticle', $idArticle, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['category_name'];
+    }
+
+    static public function getTagsDetails($idArticle)
+    {
+        global $db;
+
+        $sql = "SELECT tags.name AS tag_name
+                FROM articles_tags
+                JOIN tags ON articles_tags.id_tag = tags.id
+                WHERE articles_tags.id_article = :idArticle";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':idArticle', $idArticle, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $tags = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tags[] = $row['tag_name'];
+        }
+
+        return $tags;
+    }
+
 
 
 
