@@ -7,12 +7,12 @@
                 </div>
                 <div class="card-body">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter your email">
                         </div>
                         <span id="email_err" class="text-danger small"></span>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" id="password" placeholder="Enter your password">
                         </div>
