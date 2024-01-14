@@ -1,5 +1,6 @@
 <?php
 if(isset($_GET['id'])) {
+
     $id = $_GET['id'];
     $wiki = wiki::get_Wiki_pour_edit($id);
    // dd($wiki);
