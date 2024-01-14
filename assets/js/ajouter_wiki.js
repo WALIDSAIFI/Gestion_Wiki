@@ -13,7 +13,7 @@ ajouter_wiki.addEventListener('click', () => {
     formData.append('content', content);
     formData.append('selectedTags', selectedTags);
     formData.append('category', category);
-    formData.append('ajouter_wiki', ajouter_wiki);
+    formData.append('ajouter_wiki', 1); // or true
 
     console.log(formData);
     console.log(selectedTags);
@@ -28,13 +28,13 @@ ajouter_wiki.addEventListener('click', () => {
             const data = JSON.parse(response);
             console.log(data);
 
-            if (data.success) {
+            if (data.redirect) {
+                window.location.href = data.redirect;
+            } else if (data.success) {
                 alert(data.success);
                 document.getElementById('titre').value = "";
                 document.getElementById('content').value = "";
                 document.getElementById('category').value = "";
-
-
             } else {
                 if (data.errors) {
                     var err = data.errors;
