@@ -34,32 +34,46 @@
     </div>
 </nav>
 
-<?php
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <?php if (isset($article[0]['title'])) : ?>
+                        <h1 class="card-title bg-warning text-white p-3"><?php echo $article[0]['title']; ?></h1>
+                    <?php endif; ?>
+                    <?php if (isset($article[0]['create_at'])) : ?>
+                        <p class="card-text">
+                            Date de création: <?php echo date('F j, Y', strtotime($article[0]['create_at'])); ?><br>
+                        </p>
+                    <?php endif; ?>
+                    <?php if (isset($article[0]['id_category'])) : ?>
+                        <p class="card-text">Catégorie: <?php echo $catgoier ; ?></p>
+                    <?php endif; ?>
+                    <?php if (isset($article[0]['content'])) : ?>
+                        <h2 class="card-text"><?php echo $article[0]['content']; ?></h2>
+                    <?php endif; ?>
 
-
-
-
-
-
-    if ($article) {
-        ?>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card bg-dark text-white">
-                        <div class="card-body">
-                            <h1 class="card-title bg-warning text-white p-3"><?php echo $article['title']; ?></h1>
-                            <p class="card-text">
-                                Date de création: <?php echo date('F j, Y', strtotime($article['create_at'])); ?><br>
-                                Catégorie: <?php echo $article['id_category']; ?>
-                            </p>
-                            <h2 class="card-text"><?php echo $article['content']; ?></h2>
-                        </div>
-                    </div>
+                    <!-- Liste Bootstrap -->
+                    <h2 class="card-title bg-warning text-white p-3">Liste des tags</h2>
+                    <ul class="list-group">
+                        <?php
+                        if (!empty($tags)) {
+                            foreach ($tags as $tag) {
+                                echo '<li class="list-group-item">' . htmlspecialchars($tag) . '</li>';
+                            }
+                        } else {
+                            echo '<li class="list-group-item">Aucun tag disponible</li>';
+                        }
+                        ?>
+                    </ul>
                 </div>
             </div>
-        </section>
-<?php } ?>
+        </div>
+    </div>
+</section>
+
+=
 
 
 
