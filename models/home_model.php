@@ -35,7 +35,7 @@ if(isset($_POST['ajouter_wiki'])){
         $stm->bindParam(':id_tag', $id_Tag, PDO::PARAM_INT);
         $stm->execute();
     }
-
+    echo json_encode(["redirect" => "index.php?page=home"]);
 
 
 }
