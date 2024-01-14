@@ -13,7 +13,7 @@ class Search
         global $db;
         // % means 0 or more char before or after entered keyword
         $title = "%" . "$title" . "%";
-        $sql = "SELECT * FROM wiki WHERE title LIKE :title AND archived=0";
+        $sql = "SELECT * FROM articles WHERE title LIKE :title AND status = 'published'";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":title", $title, PDO::PARAM_STR);
         $stmt->execute();
@@ -31,11 +31,10 @@ class Search
     {
         global $db;
 
-        // % means 0 or more char before or after entered keyword
         $tag = "%" . "$tag" . "%";
-        $sql = "SELECT tag.*, wiki.* FROM wiki_tag
-                JOIN tag ON wiki_tag.tag_id = tag.tag_id
-                JOIN wiki ON tag.id = wiki.wiki_id
+        $sql = "SELECT tags.*, articles.* FROM articles_tags
+                JOIN tags ON articles_tags.id_tag = tags.id
+                JOIN articles ON articles_tags.id_article= articles.id
                 WHERE name LIKE :tag";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":tag", $tag, PDO::PARAM_STR);
