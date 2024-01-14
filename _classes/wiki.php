@@ -195,6 +195,26 @@ LIMIT 5;
     }
 
 
+    static public function getWik_User($id_user)
+    {
+        global $db;
+
+        $sql = "SELECT articles.*, users.first_name, users.last_name, users.email
+            FROM articles 
+            JOIN users ON articles.id_user = users.id
+            WHERE articles.id_user = :id_user
+              AND articles.status = 'published'";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $wikis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $wikis;
+    }
+
+
 
 
 
