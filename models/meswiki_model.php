@@ -5,6 +5,14 @@ if (isset($_POST['logout'])) {
     header("Location: index.php?page=home");
     exit();
 }
+if(isset($_GET['id'])){
+
+    $id = $_GET['id'];
+
+    wiki::deleteWikiById($id);
+    header("Location: index.php?page=meswiki");
+
+}
 $id=$_SESSION['id'];
 
 
