@@ -1,5 +1,6 @@
 <?php
 if(isset($_GET['id'])){
+
     $id=$_GET['id'];
     $tag = Tag::get_tag($id);
 }
