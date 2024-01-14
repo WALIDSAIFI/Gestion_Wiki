@@ -1,9 +1,5 @@
 <?php
-/*if (!) {
-    header("Location: index.php?page=home");
-    exit();
-}
-*/
+
 
 if (isset($_POST['logout'])) {
     session_unset();
