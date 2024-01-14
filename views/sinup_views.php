@@ -7,26 +7,26 @@
                 </div>
                 <div class="card-body">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="prenom">Prénom:</label>
                             <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Enter votre Prénom"  onsubmit="return validateForm()">
                         </div>
                         <span id="First_err" class="text-danger small"></span>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="nom">Nom:</label>
                             <input type="text" name="nom" class="form-control" id="nom" placeholder="Enter votre Nom">
                         </div>
 
                         <span id="last_err" class="text-danger small"></span>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter votre email">
                         </div>
                         <span id="email_err" class="text-danger small"></span>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="password">Password:</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Enter votre password">
                         </div>
