@@ -213,6 +213,63 @@ LIMIT 5;
 
         return $wikis;
     }
+    public static function deleteWikiById($id)
+    {
+        global $db;
+            $stmtDelete = $db->prepare("DELETE FROM articles WHERE id = :id");
+            $stmtDelete->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmtDelete->execute();
+
+    }
+
+
+
+
+    static public function updateArticle($id, $title, $content, $idCategory, $selectedTags)
+    {
+        global $db;
+
+        $sqlUpdateArticle = "UPDATE articles SET title = :title, content = :content, id_category = :idCategory, edit_at = NOW() WHERE id = :id";
+        $stmtUpdateArticle = $db->prepare($sqlUpdateArticle);
+        $stmtUpdateArticle->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmtUpdateArticle->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmtUpdateArticle->bindParam(':content', $content, PDO::PARAM_STR);
+        $stmtUpdateArticle->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
+        $stmtUpdateArticle->execute();
+
+        $sqlDeleteRelations = "DELETE FROM articles_tags WHERE id_article = :id";
+        $stmtDeleteRelations = $db->prepare($sqlDeleteRelations);
+        $stmtDeleteRelations->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmtDeleteRelations->execute();
+
+        foreach ($selectedTags as $idTag) {
+            $sqlAddRelation = "INSERT INTO articles_tags (id_article, id_tag) VALUES (:id, :id_tag)";
+            $stmtAddRelation = $db->prepare($sqlAddRelation);
+            $stmtAddRelation->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmtAddRelation->bindParam(':id_tag', $idTag, PDO::PARAM_INT);
+            $stmtAddRelation->execute();
+        }
+    }
+
+
+
+    static public function get_Wiki_pour_edit($id)
+    {
+        global $db;
+
+        $sql = "SELECT articles.*,users.*
+                FROM articles 
+                JOIN users ON articles.id_user = users.id
+                WHERE articles.id = :id";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $article = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $article;
+    }
 
 
 
@@ -223,7 +280,11 @@ LIMIT 5;
 
 
 
-}
+
+
+
+
+    }
 
 
 
