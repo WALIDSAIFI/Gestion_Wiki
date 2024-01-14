@@ -66,7 +66,7 @@
 
 
 
-            <main class="h-screen" id="search-results-container"></main>
+            <div class="h-screen" id="search-results-container"></div>
 
             <script>
                 const searchInput = document.getElementById("search-input");
@@ -85,7 +85,7 @@
                 function getSearchedResults() {
                     resultsContainer.innerHTML = "";
                     $.get(
-                        "index.php?page=search_bar&home=true&" + searchType.value + "=true&input_value=" + searchInput.value,
+                        "index.php?page=home&" + searchType.value + "=true&input_value=" + searchInput.value,
                         (data) => {
                             let searchedData = JSON.parse(data);
 
