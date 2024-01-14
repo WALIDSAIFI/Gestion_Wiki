@@ -49,20 +49,93 @@
                     ?>
                 </p>
                 <div class="container">
-                    <select class="form-select mb-3" aria-label="Default select example">
+                    <select class="form-select mb-3" aria-label="Default select example"  id="search-type">
                         <option selected>Choix de recherche </option>
-                        <option value="1">Recherche par titre</option>
-                        <option value="2">Recherche par tag</option>
+                        <option value="title">Recherche par titre</option>
+                        <option value="tag">Recherche par tag</option>
                     </select>
 
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search"   id="search-input" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="button" id="search-btn">Search</button>
                     </form>
                 </div>
 
             </div>
+
+
+
+
+            <main class="h-screen" id="search-results-container"></main>
+
+            <script>
+                const searchInput = document.getElementById("search-input");
+                const resultsContainer = document.getElementById("search-results-container");
+                const searchType = document.getElementById("search-type");
+
+                searchInput.addEventListener("input", () => {
+                    console.log(searchType.value);
+                    if (searchInput.value !== "") {
+                        getSearchedResults();
+                    } else {
+                        resultsContainer.innerHTML = "";
+                    }
+                });
+
+                function getSearchedResults() {
+                    resultsContainer.innerHTML = "";
+                    $.get(
+                        "index.php?page=search_bar&home=true&" + searchType.value + "=true&input_value=" + searchInput.value,
+                        (data) => {
+                            let searchedData = JSON.parse(data);
+
+                            searchedData.forEach((item) => {
+                                console.log(item);
+                                resultsContainer.innerHTML += `<div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle" dominant-baseline="middle">${item.title}</text>
+                            </svg>
+
+                            <div class="card-body">
+                                <h5 class="card-title">${item.first_name}</h5>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="index.php?page=deswiki&id=${item.id}" class="btn btn-sm btn-outline-secondary">View</a>
+                                    </div>
+                                    <small class="text-muted"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                            });
+                        }
+                    );
+                }
+            </script>
+
+
+
+
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
